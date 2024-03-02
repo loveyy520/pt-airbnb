@@ -1,5 +1,7 @@
 
-export default [
+import { type Category } from "@/types"
+
+export default <Category[]>[
 	{
 		"label": "Beach",
 		"icon": "i-noto:beach-with-umbrella",

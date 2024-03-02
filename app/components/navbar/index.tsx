@@ -1,4 +1,4 @@
-import { SaveUser } from "@/types";
+import { SafeUser } from "@/types";
 import { NextPage } from "next";
 import Container from "../container";
 import Categories from "./categories";
@@ -7,7 +7,7 @@ import Search from "./search";
 import UserMenu from "./user-menu";
 
 interface NavBarProps {
-    currentUser?: SaveUser
+    currentUser?: SafeUser
 }
 
 const Navbar: NextPage<NavBarProps> = ({ currentUser }) => {
