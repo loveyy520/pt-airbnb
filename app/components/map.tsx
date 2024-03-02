@@ -22,6 +22,7 @@ interface MapProps {
 }
 
 const Map: NextPage<MapProps> = ({ center }) => {
+    
     return (
         <MapContainer
             center={center || [51, -0.09]}
