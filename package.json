@@ -1,7 +1,8 @@
 {
-  "name": "arbnb-clone",
+  "name": "arbnb-clone-web",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,16 +10,41 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next-auth/prisma-adapter": "^1.0.7",
+    "@prisma/client": "5.10.2",
+    "axios": "^1.6.7",
+    "bcrypt": "^5.1.1",
+    "leaflet": "^1.9.4",
+    "next": "14.1.0",
+    "next-auth": "^4.24.6",
+    "next-cloudinary": "^6.0.1",
+    "query-string": "^9.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.0"
+    "react-hook-form": "^7.50.1",
+    "react-hot-toast": "^2.4.1",
+    "react-leaflet": "^4.2.1",
+    "react-select": "^5.8.0",
+    "world-countries": "^5.0.0",
+    "zustand": "^4.5.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@iconify/json": "^2.2.184",
+    "@types/bcrypt": "^5.0.2",
+    "@types/leaflet": "^1.9.8",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@unocss/postcss": "^0.58.5",
+    "@unocss/preset-attributify": "^0.58.5",
+    "@unocss/preset-icons": "^0.58.5",
+    "@unocss/preset-rem-to-px": "^0.58.5",
+    "@unocss/transformer-attributify-jsx": "^0.58.5",
+    "@unocss/webpack": "^0.58.5",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0"
+    "eslint-config-next": "14.1.0",
+    "prisma": "^5.10.2",
+    "typescript": "^5",
+    "unocss": "^0.58.5"
   }
 }

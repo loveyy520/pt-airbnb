@@ -1,0 +1,16 @@
+/* style.css */
+@unocss preflights;
+@unocss default;
+
+/*
+  Fallback layer. It's always recommended to include.
+  Only unused layers will be injected here.
+*/
+@unocss all;
+
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-pane,
+.leaflet-top {
+  z-index: 0 !important;
+}
