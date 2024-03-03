@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation"
 import { NextPage } from "next/types"
-import { useCallback } from "react"
+import { Suspense, useCallback } from "react"
 
 import qs from 'query-string'
 
@@ -14,7 +14,7 @@ interface CategoryBoxProps {
     selected?: boolean
 }
 
-const CategoryBox: NextPage<CategoryBoxProps> = ({
+const CBox: NextPage<CategoryBoxProps> = ({
     label,
     icon,
     iconColor,
@@ -55,5 +55,11 @@ const CategoryBox: NextPage<CategoryBoxProps> = ({
         </div>
     );
 }
- 
+
+const CategoryBox: NextPage<CategoryBoxProps> = (params) => {
+    return <Suspense>
+        <CBox {...params} />
+    </Suspense>
+}
+
 export default CategoryBox;

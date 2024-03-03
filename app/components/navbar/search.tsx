@@ -5,9 +5,9 @@ import useSearchModal from "@/app/hooks/useSearchModal";
 import { differenceInDays } from "date-fns";
 import { NextPage } from "next";
 import { useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import { Suspense, useMemo } from "react";
 
-const Search: NextPage = () => {
+const SearchBar: NextPage = () => {
     const searchModal = useSearchModal()
     const params = useSearchParams()
 
@@ -72,6 +72,12 @@ const Search: NextPage = () => {
                 </div>
             </div>
     </div>
+}
+
+const Search: NextPage = () => {
+    return <Suspense>
+        <SearchBar />
+    </Suspense>
 }
 
 export default Search

@@ -6,8 +6,9 @@ import CategoryBox from '../category-box'
 import Container from '../container'
 
 import categories from '@/app/resource/categories'
+import { Suspense } from 'react'
 
-const Categories: NextPage = () => {
+const Cates: NextPage = () => {
     const params = useSearchParams()
     const category = params.get('category')
     const pathname = usePathname()
@@ -30,6 +31,12 @@ const Categories: NextPage = () => {
                 }
             </div>
     </Container>
+}
+
+const Categories: NextPage = () => {
+    return <Suspense>
+        <Cates />
+    </Suspense>
 }
 
 export default Categories

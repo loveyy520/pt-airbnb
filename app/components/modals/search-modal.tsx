@@ -3,12 +3,13 @@
 import useSearchModal from "@/app/hooks/useSearchModal";
 import dynamic from "next/dynamic";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { Suspense, useCallback, useMemo, useState } from "react";
 import { Range } from "react-date-range";
 import CountrySelect, { CountrySelectValue } from "../inputs/country-select";
 import Modal from "./modal";
 
 import { formatISO } from "date-fns";
+import { NextPage } from "next";
 import qs from 'query-string';
 import Heading from "../heading";
 import Calendar from "../inputs/calendar";
@@ -21,7 +22,7 @@ enum STEPS {
     INFO = 2
 }
 
-const SearchModal = () => {
+const SModal = () => {
     const router = useRouter()
     const params = useSearchParams()
     const searchModal = useSearchModal()
@@ -172,6 +173,12 @@ const SearchModal = () => {
         actionLabel={actionLabel}
         secondaryActionLabel={secondaryActionLabel}
         body={bodyContent} /> );
+}
+
+const SearchModal: NextPage = () => {
+    return <Suspense>
+        <SModal />
+    </Suspense>
 }
  
 export default SearchModal;

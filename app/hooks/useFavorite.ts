@@ -15,7 +15,7 @@ const useFavorite = ({
     currentUser
 }: IUseFavorite) => {
     const router = useRouter()
-    const loginMadal = useLoginModal()
+    const loginModal = useLoginModal()
 
     const hasFavorited = useMemo(() => {
         const list = currentUser?.favoriteIds || []
@@ -26,7 +26,7 @@ const useFavorite = ({
     const toggleFavorite = useCallback(async(e: MouseEvent<HTMLDivElement>) => {
         e.stopPropagation()
 
-        if (!currentUser) return loginMadal.onOpen()
+        if (!currentUser) return loginModal.onOpen()
 
         try {
             const method = hasFavorited ? 'delete' : 'post'
@@ -38,7 +38,7 @@ const useFavorite = ({
         } catch(e) {
             toast.error('Something went wrong.')
         }
-    }, [listingId, currentUser, hasFavorited, loginMadal])
+    }, [listingId, currentUser, hasFavorited, loginModal, router])
 
     return {
         hasFavorited,

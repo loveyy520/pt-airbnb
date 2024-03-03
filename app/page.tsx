@@ -10,10 +10,15 @@ interface HomeProps {
 }
 /* index.tsx */
 const Home = async({ searchParams }: HomeProps) => {
-  const listings = await getListings(searchParams)
-
+  
   // const listings: any = []
   const currentUser = await getCurrentUser()
+
+  const listingParams = { ...searchParams }
+  if (searchParams.userId) {
+    listingParams.userId = currentUser?.id
+  }
+  const listings = await getListings(listingParams)
 
   if (!listings?.length) {
     return (
