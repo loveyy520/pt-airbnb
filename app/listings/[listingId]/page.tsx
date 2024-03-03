@@ -15,6 +15,8 @@ const ListingPage = async({
     const currentUser = await getCurrentUser()
     const reservations = await getReservations(params)
 
+    console.log(reservations.length, reservations)
+
     if (!listing) return <EmptyState />
 
     return (

@@ -24,7 +24,7 @@ const CountrySelect: NextPage<CountrySelectProps> = ({
     return (
         <div>
             <Select
-                defaultMenuIsOpen
+                defaultMenuIsOpen={false}
                 placeholder='Any where'
                 isClearable
                 options={getAll()}

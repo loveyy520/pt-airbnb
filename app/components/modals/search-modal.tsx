@@ -73,7 +73,7 @@ const SearchModal = () => {
             updatedQuery.endDate = formatISO(dateRange.endDate)
         }
 
-        const url = qs.stringify({
+        const url = qs.stringifyUrl({
             url: '/',
             query: updatedQuery
         }, {skipNull: true})
@@ -130,7 +130,7 @@ const SearchModal = () => {
                     subtitle="Make sure everyone is free!" />
                 <Calendar
                     value={dateRange}
-                    onChange={(value) => setDateRange(value)} />
+                    onChange={(value) => setDateRange(value.selection)} />
             </div>
         )
     }

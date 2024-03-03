@@ -72,6 +72,7 @@ const ListingClient: NextPage<ListingClientProps> = ({
             toast.success('Listing reserved!')
             setDateRange(initialDateRange)
             router.push('/trips')
+            router.refresh()
 
         } catch(e: any) {
             toast.error(e)
