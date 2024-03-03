@@ -1,9 +1,14 @@
 'use client'
 
+import useSearchModal from "@/app/hooks/useSearchModal";
 import { NextPage } from "next";
 
 const Search: NextPage = () => {
+    const searchModal = useSearchModal()
+
+
     return <div
+        onClick={searchModal.onOpen}
         className="py-2 rounded-full transition cursor-pointer"
         w="full md:auto"
         b="1 solid neutral-1"

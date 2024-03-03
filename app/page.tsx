@@ -3,9 +3,14 @@ import getListings from "./actions/getListings"
 import Container from "./components/container"
 import EmptyState from "./components/empty-state"
 import ListingCard from "./components/listings/listing-card"
+
+import { IListingsParams } from '@/types'
+interface HomeProps {
+  searchParams: IListingsParams
+}
 /* index.tsx */
-const Home = async() => {
-  const listings = await getListings()
+const Home = async({ searchParams }: HomeProps) => {
+  const listings = await getListings(searchParams)
   
   // const listings: any = []
   const currentUser = await getCurrentUser()

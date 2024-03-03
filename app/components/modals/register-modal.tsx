@@ -37,16 +37,18 @@ const RegisterModal = () => {
     })
 
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-        setIsLoading(true)
-
-        const resp = await axios.post('/api/register', data)
-            .catch((e) => {
-                toast.error('Something went wrong')
-            })
-            .finally(() => setIsLoading(false))
-        console.log('resp:', resp)
-        
-        registerModal.onClose()
+        try {
+            setIsLoading(true)
+    
+            await axios.post('/api/register', data)
+            registerModal.onClose()
+            loginModal.onOpen()
+            
+        } catch(e: any) {
+            toast.error('Something went wrong')
+        } finally {
+            setIsLoading(false)
+        }
     }
 
     const bodyContent = (<div className='flex flex-col gap-4'>

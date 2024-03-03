@@ -17,18 +17,17 @@ import CountrySelect from "../inputs/country-select";
 import ImageUpload from "../inputs/image-upload";
 import Input from "../inputs/input";
 
+enum STEPS {
+    CATEGORY = 0,
+    LOCATION = 1,
+    INFO = 2,
+    IMAGES = 3,
+    DESCRIPTION = 4,
+    PRICE = 5
+}
+
 const RentModal = () => {
     const rentModal = useRentModal()
-
-    enum STEPS {
-        CATEGORY = 0,
-        LOCATION = 1,
-        INFO = 2,
-        IMAGES = 3,
-        DESCRIPTION = 4,
-        PRICE = 5
-
-    }
 
     const [step, setStep] = useState(STEPS.CATEGORY)
     const onBack = () => {
@@ -251,7 +250,7 @@ const RentModal = () => {
             secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
             title="Airbnb your home"
             body={bodyContent} />
-     );
+    );
 }
  
 export default RentModal;

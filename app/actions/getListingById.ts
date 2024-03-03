@@ -1,7 +1,11 @@
 
 import prisma from "../libs/prismadb";
 
-export default async function getListingById(listingId: string) {
+interface IParams {
+    listingId: string
+}
+
+export default async function getListingById({ listingId }: IParams) {
     try {
         const listing = await prisma.listing.findUnique({
             where: {

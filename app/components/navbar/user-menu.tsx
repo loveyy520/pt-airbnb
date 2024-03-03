@@ -3,18 +3,20 @@
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useRentModal from "@/app/hooks/useRentModal";
-import { SaveUser } from "@/types";
+import { SafeUser } from "@/types";
 import { NextPage } from "next";
 import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import Avatar from "../avatar";
 import MenuItem from "./menu-item";
 
 interface UserMenuProps {
-    currentUser?: SaveUser
+    currentUser?: SafeUser
 }
 
 const UserMenu: NextPage<UserMenuProps> = ({ currentUser }) => {
+    const router = useRouter()
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleOpen = useCallback(() => {
@@ -55,16 +57,16 @@ const UserMenu: NextPage<UserMenuProps> = ({ currentUser }) => {
                         currentUser
                             ? (<>
                                     <MenuItem
-                                        onClick={loginModal.onOpen}
+                                        onClick={() => router.push('/trips')}
                                         label="My trips" />
                                     <MenuItem
-                                        onClick={registerModal.onOpen}
+                                        onClick={() => router.push('/favorites')}
                                         label="My favorites" />
                                     <MenuItem
-                                        onClick={loginModal.onOpen}
+                                        onClick={() => router.push('/reservations')}
                                         label="My reservations" />
                                     <MenuItem
-                                        onClick={registerModal.onOpen}
+                                        onClick={() => router.push('/properties')}
                                         label="My properties" />
                                     <MenuItem
                                         onClick={rentModal.onOpen}
