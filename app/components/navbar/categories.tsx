@@ -25,7 +25,7 @@ const Categories: NextPage = () => {
                             selected={category === cate.label}
                             description={cate.description}
                             icon={cate.icon}
-                            iconColor={cate.iconColor} />
+                            iconColor={cate.iconColor!} />
                     ))
                 }
             </div>

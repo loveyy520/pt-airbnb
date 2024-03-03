@@ -36,7 +36,7 @@ type SafeListing = Omit<
 
 type SafeReservation = Omit<
     Reservation,
-    'createdAt | startDate | endDate | listing'
+    'createdAt' | 'startDate' | 'endDate' | 'listing'
 > & {
     createdAt: string
     startDate: string
