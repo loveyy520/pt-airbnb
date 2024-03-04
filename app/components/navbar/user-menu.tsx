@@ -51,7 +51,10 @@ const UserMenu: NextPage<UserMenuProps> = ({ currentUser }) => {
             </div>
         </div>
         {isOpen && (
-            <div className="absolute rounded-xl shadow-md bg-white overflow-hidden right-0 top-12 text-sm" w="40vw md:3/4">
+            <div
+                className="absolute rounded-xl shadow-md bg-white overflow-hidden right-0 top-12 text-sm"
+                w="40vw md:3/4"
+                z="5">
                 <div className="flex flex-col cursor-pointer">
                     {
                         currentUser
